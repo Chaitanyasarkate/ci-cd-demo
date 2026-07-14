@@ -10,7 +10,7 @@ jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/ci-cd-demo:latest
+      IMAGE_NAME: ${{ (secrets.DOCKER_USERNAME != '' && secrets.DOCKER_USERNAME) || github.repository_owner }}/ci-cd-demo:latest
 
     steps:
     - name: Checkout code
