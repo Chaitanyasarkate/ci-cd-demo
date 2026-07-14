@@ -1,6 +1,6 @@
 # CI/CD Pipeline Project 🚀
 
-![Build Status](https://github.com/YOUR-USERNAME/ci-cd-demo/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/Chaitanyasarkate/ci-cd-demo/actions/workflows/main.yml/badge.svg)
 
 ## Overview
 
