@@ -9,6 +9,8 @@ on:
 jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/ci-cd-demo:latest
 
     steps:
     - name: Checkout code
@@ -26,12 +28,12 @@ jobs:
       run: npm test
 
     - name: Build Docker image
-      run: docker build -t your-dockerhub-username/ci-cd-demo:latest .
+      run: docker build -t "${IMAGE_NAME}" .
 
     - name: Login to DockerHub
       if: github.event_name == 'push'
-      run: echo "${{ secrets.dckr_pat_OBNIx6PRCxZd1lmr0Y86REol7sM }}" | docker login -u "${{ secrets.chaitanya1585 }}" --password-stdin
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: Push Docker image
       if: github.event_name == 'push'
-      run: docker push your-dockerhub-chaitanya1585/ci-cd-demo:latest
+      run: docker push "${IMAGE_NAME}"

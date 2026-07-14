@@ -106,7 +106,7 @@ To enable Docker image pushing, add these secrets to your GitHub repository:
    - `DOCKER_USERNAME` - Your DockerHub username
    - `DOCKER_PASSWORD` - Your DockerHub password or personal access token
 
-**Note:** Replace `your-dockerhub-username` in `.github/workflows/main.yml` with your actual DockerHub username.
+**Note:** The workflow reads your DockerHub username from the `DOCKER_USERNAME` secret and uses it for image tagging and pushing.
 
 ## Deployment Options
 
